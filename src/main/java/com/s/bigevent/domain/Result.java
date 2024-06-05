@@ -7,12 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 //无参
 @NoArgsConstructor
 //全参
 @AllArgsConstructor
 @Data
-public class Result<T> {
+public class Result<T> implements Serializable {
     private Integer code;//业务状态码  0-成功  1-失败
     private String message;//提示信息
     private T data;//响应数据

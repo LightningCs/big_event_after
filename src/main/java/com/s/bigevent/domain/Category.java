@@ -6,10 +6,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.groups.Default;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class Category {
+public class Category implements Serializable {
     /**
      * @NotNull:不能为 null，但可以为 empty，一般用在 Integer 类型的基本数据类型的非空校验上，
      *          而且被其标注的字段可以使用 @size、@Max、@Min 对字段数值进行大小的控制

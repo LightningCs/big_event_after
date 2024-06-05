@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
