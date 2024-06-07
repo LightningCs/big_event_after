@@ -22,7 +22,6 @@ public class CategoryController {
     private CategoryService articleService;
 
     @PostMapping
-    @CacheEvict(cacheNames = "categoryCache_list")
     public Result add(@RequestBody @Validated(Category.Add.class) Category category) {
         category.setCreateTime(LocalDateTime.now());
         category.setUpdateTime(LocalDateTime.now());
@@ -34,7 +33,6 @@ public class CategoryController {
     }
 
     @GetMapping
-    @Cacheable(cacheNames = "categoryCache_list")
     public Result<List<Category>> getList() {
         Map<String, Object> map = ThreadLocalUtil.get();
         List<Category> categories = articleService.getList((Integer) map.get("id"));
@@ -48,14 +46,12 @@ public class CategoryController {
     }
 
     @PutMapping
-    @CacheEvict(cacheNames = "categoryCache_list")
     public Result update(@RequestBody @Validated(Category.Update.class) Category category) {
         articleService.update(category);
         return Result.success();
     }
 
     @DeleteMapping
-    @CacheEvict(cacheNames = "articleCache_list")
     public Result delete(@Validated(Category.Delete.class) int id) {
         articleService.delete(id);
         return Result.success();

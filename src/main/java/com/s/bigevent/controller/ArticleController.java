@@ -22,14 +22,12 @@ public class ArticleController {
     private ArticleService articleService;
 
     @PostMapping
-    @CacheEvict(cacheNames = "articleCache_list")
     public Result add(@RequestBody Article article) {
         articleService.add(article);
         return Result.success();
     }
 
     @GetMapping
-    @Cacheable(cacheNames = "articleCache_list")
     public Result<PageBean<Article>> list(Integer pageNum, Integer pageSize, @RequestParam(required = false) String categoryId, @RequestParam(required = false) String state) {
         log.info("获取所有文章信息");
         PageBean<Article> pages = articleService.list(pageNum, pageSize, categoryId, state);

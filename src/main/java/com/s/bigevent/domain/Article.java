@@ -12,8 +12,11 @@ import org.hibernate.validator.constraints.URL;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * 文章类
+ */
 @Data
-public class Article {
+public class Article implements Serializable {
     private Integer id;//主键ID
 
     @NotEmpty
