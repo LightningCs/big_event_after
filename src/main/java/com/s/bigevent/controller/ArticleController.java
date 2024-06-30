@@ -29,7 +29,7 @@ public class ArticleController {
 
     @GetMapping
     public Result<PageBean<Article>> list(Integer pageNum, Integer pageSize, @RequestParam(required = false) String categoryId, @RequestParam(required = false) String state) {
-        log.info("获取所有文章信息");
+        log.info("获取所有文章信息，{}，{}，{}，{}", pageNum, pageSize, categoryId, state);
         PageBean<Article> pages = articleService.list(pageNum, pageSize, categoryId, state);
         return Result.success(pages);
     }
