@@ -1,7 +1,6 @@
 package com.s.bigevent.service;
 
 import com.s.bigevent.domain.User;
-import org.springframework.stereotype.Service;
 
 public interface UserService {
     User findByUsername(String username);

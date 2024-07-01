@@ -1,7 +1,7 @@
 package com.s.bigevent.service.impl;
 
 import com.s.bigevent.domain.Comment;
-import com.s.bigevent.domain.CommentDTO;
+import com.s.bigevent.domain.dto.CommentDTO;
 import com.s.bigevent.mapper.CommentMapper;
 import com.s.bigevent.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;

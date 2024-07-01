@@ -2,6 +2,8 @@ package com.s.bigevent.controller;
 
 import com.s.bigevent.domain.Result;
 import com.s.bigevent.domain.User;
+import com.s.bigevent.domain.dto.HistoryDTO;
+import com.s.bigevent.domain.vo.HistoryVO;
 import com.s.bigevent.service.UserService;
 import com.s.bigevent.utils.JwtUtil;
 import com.s.bigevent.utils.Md5Util;
@@ -16,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController

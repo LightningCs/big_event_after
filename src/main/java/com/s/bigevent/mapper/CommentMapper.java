@@ -1,7 +1,7 @@
 package com.s.bigevent.mapper;
 
 import com.s.bigevent.domain.Comment;
-import com.s.bigevent.domain.CommentDTO;
+import com.s.bigevent.domain.dto.CommentDTO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
