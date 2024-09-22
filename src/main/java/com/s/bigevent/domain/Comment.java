@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -32,6 +33,16 @@ public class Comment {
 
     @NotEmpty
     private String userPic;
+
+    @NotNull
+    private Integer like;
+
+    @NotNull
+    private Integer dislike;
+
+    private Integer responseCommentId;
+
+    private List<Comment> responseList;
 
     @NotEmpty
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

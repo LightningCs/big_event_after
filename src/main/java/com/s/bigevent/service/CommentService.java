@@ -9,4 +9,6 @@ public interface CommentService {
     List<Comment> getCommentsByArticleId(Integer id);
 
     void publishComment(CommentDTO commentDTO);
+
+    void update(Integer commentId, Integer like);
 }

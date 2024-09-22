@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.s.bigevent.mapper.CommentMapper">
+    <insert id="publishComment" parameterType="com.s.bigevent.domain.dto.CommentDTO">
+        insert into comment(content, article_id, user_id, response_comment_id, create_time)
+        values (#{comment}, #{articleId}, #{userId},
+                <if test="responseCommentId != null">
+                    #{responseCommentId},
+                </if>
+                now())
+    </insert>
+    <update id="update">
+        update comment set
+            <if test="like == 1">
+                `like` = `like` + 1,
+            </if>
+            <if test="like == 2">
+                dislike = dislike + 1,
+            </if>
+            <if test="like == 3">
+                `like` = `like` - 1,
+            </if>
+            <if test="like == 4">
+                `like` = `like` + 1, dislike = dislike - 1,
+            </if>
+            <if test="like == 5">
+                `like` = `like` - 1, dislike = dislike + 1,
+            </if>
+            <if test="like == 6">
+                dislike = dislike - 1,
+            </if>
+        where id = #{commentId}
+    </update>
+</mapper>

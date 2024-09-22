@@ -20,4 +20,6 @@ public class CommentDTO {
 
     @NotNull
     private Integer userId;
+
+    private Integer responseCommentId = null;
 }

@@ -16,11 +16,22 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> getCommentsByArticleId(Integer id) {
-        return commentMapper.getByArticlesId(id);
+        List<Comment> commentList = commentMapper.getByArticlesId(id);
+
+        commentList.forEach(comment ->  {
+            comment.setResponseList(commentMapper.getResponse(comment.getId()));
+        });
+
+        return commentList;
     }
 
     @Override
     public void publishComment(CommentDTO commentDTO) {
         commentMapper.publishComment(commentDTO);
+    }
+
+    @Override
+    public void update(Integer commentId, Integer like) {
+        commentMapper.update(commentId, like);
     }
 }
