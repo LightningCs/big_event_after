@@ -1,5 +1,6 @@
 package com.s.bigevent.controller;
 
+import com.github.pagehelper.PageHelper;
 import com.s.bigevent.domain.Article;
 import com.s.bigevent.domain.PageBean;
 import com.s.bigevent.domain.Result;
@@ -55,5 +56,20 @@ public class ArticleController {
         log.info("删除数据：{}", id);
         articleService.delete(id);
         return Result.success();
+    }
+
+    /**
+     * 获取用户个人发表的文章
+     * @param userId
+     * @param pageSize
+     * @return
+     */
+    @GetMapping("/individual")
+    public Result<PageBean<Article>> getIndividualArticle(Integer userId, Integer pageSize) {
+        log.info("获取用户个人发表的文章：{}，{}", userId, pageSize);
+
+        PageBean<Article> individualArticles = articleService.getIndividualArticles(userId, pageSize);
+
+        return Result.success(individualArticles);
     }
 }

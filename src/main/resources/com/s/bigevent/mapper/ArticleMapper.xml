@@ -36,4 +36,10 @@
             and create_user = #{userId}
         </where>
     </select>
+    <select id="getIndividualArticles" resultType="com.s.bigevent.domain.Article">
+        select * from article
+        <where>
+            create_user = #{userId}
+        </where>
+    </select>
 </mapper>

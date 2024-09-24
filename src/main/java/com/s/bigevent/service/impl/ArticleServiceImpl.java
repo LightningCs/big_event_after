@@ -66,4 +66,20 @@ public class ArticleServiceImpl implements ArticleService {
     public void delete(Integer id) {
         articleMapper.delete(id);
     }
+
+    @Override
+    public PageBean<Article> getIndividualArticles(Integer userId, Integer pageSize) {
+        PageBean<Article> individualArticles = new PageBean<>();
+
+        PageHelper.startPage(1, pageSize);
+
+        List<Article> articles = articleMapper.getIndividualArticles(userId);
+
+        Page<Article> p = (Page<Article>) articles;
+
+        individualArticles.setTotal(p.getTotal());
+        individualArticles.setItems(p.getResult());
+
+        return individualArticles;
+    }
 }

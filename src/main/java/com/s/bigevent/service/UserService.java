@@ -12,4 +12,6 @@ public interface UserService {
     void updateAvatar(String avatarUrl);
 
     void updatePwd(String newPwd);
+
+    User getUserDetail(Integer userId);
 }

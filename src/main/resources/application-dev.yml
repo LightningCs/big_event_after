@@ -1,0 +1,11 @@
+mysql:
+  host: localhost
+  port: 13306
+  database: big_event
+  username: root
+  password: 151486
+
+redis:
+  host: localhost
+  port: 6379
+  database: 5

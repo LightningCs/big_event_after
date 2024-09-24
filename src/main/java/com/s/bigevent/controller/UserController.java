@@ -9,6 +9,7 @@ import com.s.bigevent.utils.JwtUtil;
 import com.s.bigevent.utils.Md5Util;
 import com.s.bigevent.utils.ThreadLocalUtil;
 import jakarta.validation.constraints.Pattern;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -24,6 +25,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Validated
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -118,5 +120,14 @@ public class UserController {
 
         userService.updatePwd(newPwd);
         return Result.success();
+    }
+
+    @GetMapping
+    public Result<User> getUserDetail(Integer userId) {
+        log.info("获取用户详细信息：{}", userId);
+
+        User user = userService.getUserDetail(userId);
+
+        return Result.success(user);
     }
 }

@@ -47,4 +47,9 @@ public class UserServiceImpl implements UserService {
         Map<String, Object> map = ThreadLocalUtil.get();
         userMapper.updatePwd(Md5Util.getMD5String(newPwd), (Integer) map.get("id"));
     }
+
+    @Override
+    public User getUserDetail(Integer userId) {
+        return userMapper.getUserDetail(userId);
+    }
 }

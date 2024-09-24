@@ -14,4 +14,5 @@ public interface ArticleService {
 
     void delete(Integer id);
 
+    PageBean<Article> getIndividualArticles(Integer userId, Integer pageSize);
 }

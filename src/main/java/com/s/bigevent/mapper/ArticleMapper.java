@@ -20,4 +20,6 @@ public interface ArticleMapper {
 
     @Delete("delete from article where id = #{id}")
     void delete(Integer id);
+
+    List<Article> getIndividualArticles(Integer userId);
 }

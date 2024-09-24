@@ -2,8 +2,8 @@ package com.s.bigevent.controller;
 
 import com.s.bigevent.constant.Constant;
 import com.s.bigevent.domain.Comment;
-import com.s.bigevent.domain.dto.CommentDTO;
 import com.s.bigevent.domain.Result;
+import com.s.bigevent.domain.dto.CommentDTO;
 import com.s.bigevent.service.CommentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
