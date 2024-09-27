@@ -2,6 +2,8 @@ package com.s.bigevent.service;
 
 import com.s.bigevent.domain.User;
 
+import java.util.List;
+
 public interface UserService {
     User findByUsername(String username);
 
@@ -13,5 +15,6 @@ public interface UserService {
 
     void updatePwd(String newPwd);
 
-    User getUserDetail(Integer userId);
+    List<User> getUserDetail(Integer[] userIds);
+
 }

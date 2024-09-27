@@ -2,8 +2,6 @@ package com.s.bigevent.controller;
 
 import com.s.bigevent.domain.Result;
 import com.s.bigevent.domain.User;
-import com.s.bigevent.domain.dto.HistoryDTO;
-import com.s.bigevent.domain.vo.HistoryVO;
 import com.s.bigevent.service.UserService;
 import com.s.bigevent.utils.JwtUtil;
 import com.s.bigevent.utils.Md5Util;
@@ -19,7 +17,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -123,10 +120,10 @@ public class UserController {
     }
 
     @GetMapping
-    public Result<User> getUserDetail(Integer userId) {
-        log.info("获取用户详细信息：{}", userId);
+    public Result<User> getUserDetail(Integer... userId) {
+        log.info("获取用户详细信息：{}", userId[0]);
 
-        User user = userService.getUserDetail(userId);
+        User user = userService.getUserDetail(userId).get(0);
 
         return Result.success(user);
     }

@@ -1,6 +1,5 @@
 package com.s.bigevent.controller;
 
-import com.s.bigevent.constant.Constant;
 import com.s.bigevent.domain.Comment;
 import com.s.bigevent.domain.Result;
 import com.s.bigevent.domain.dto.CommentDTO;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import static com.s.bigevent.en.Constant.LIKE;
 
 import java.util.List;
 import java.util.Map;
@@ -61,7 +61,7 @@ public class CommentController {
     public Result like (@PathVariable Integer commentId, @PathVariable Integer userId, @PathVariable Integer like) {
         log.info("喜欢，评论id：{}，用户id：{}，值：{}", commentId, userId, like);
         redisTemplate.opsForHash()
-                .put(Constant.LIKE + userId, commentId, like % 3);
+                .put(LIKE.value() + userId, commentId, like % 3);
 
         commentService.update(commentId, like);
 
@@ -77,7 +77,7 @@ public class CommentController {
     public Result<Map<String, Integer>> getLikeList(@PathVariable Integer userId) {
         log.info("获取喜欢集合：{}", userId);
         Map<String, Integer> likeList = redisTemplate.opsForHash()
-                .entries(Constant.LIKE + userId);
+                .entries(LIKE.value() + userId);
         return Result.success(likeList);
     }
 }
